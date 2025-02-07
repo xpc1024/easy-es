@@ -26,6 +26,8 @@ Easy-Es is a powerfully enhanced toolkit of RestHighLevelClient for simplify dev
 
 **easy-es website**  https://en.easy-es.cn/
 
+**easy-es gitcode** https://gitcode.com/dromara/easy-es
+
 **easy-es gitee** https://gitee.com/dromara/easy-es
 
 **easy-es github** https://github.com/dromara/easy-es
@@ -58,9 +60,10 @@ Easy-Es is a powerfully enhanced toolkit of RestHighLevelClient for simplify dev
 
 
 ```java
-
-// Use Easy-Es to complete the query with only 1 lines of code
-List<Document> documents = documentMapper.selectList(EsWrappers.lambdaQuery(Document.class).eq(Document::getTitle, "Hi").eq(Document::getCreator, "Guy"));
+// Use Easy-Es to complete the query with only 3 lines of code
+LambdaEsQueryWrapper<Document> wrapper = new LambdaEsQueryWrapper<>();
+        wrapper.eq(Document::getTitle, "Hi").eq(Document::getCreator, "Guy");
+        List<Document> documents = documentMapper.selectList(wrapper);
 ```
 
 ```java
@@ -86,10 +89,8 @@ String indexName = "document";
 > The above is just a simple query demonstration. The more complex the actual query scene, the better the effect, which can save 3-5 times the amount of code on average.
 ## Getting started
 
-- Latest Version: [![Maven Central](https://img.shields.io/github/v/release/xpc1024/easy-es?include_prereleases&logo=xpc&style=plastic)](https://search.maven.org/search?q=g:io.github.xpc1024%20a:easy-*)
-
-- Add Easy-Es dependency
-
+-   Add Easy-Es dependency
+    - Latest Version: [![Maven Central](https://img.shields.io/github/v/release/xpc1024/easy-es?include_prereleases&logo=xpc&style=plastic)](https://search.maven.org/search?q=g:io.github.xpc1024%20a:easy-*)
     - Maven:
       ```xml
       <dependency>
@@ -135,7 +136,6 @@ String indexName = "document";
 
 ## MySQL Easy-Es and Es syntax comparison table
 
-
 | MySQL | Easy-Es | Es-DSL/Es java api|
 | --- | --- |--- |
 | and | and |must|
@@ -171,6 +171,7 @@ String indexName = "document";
 | select * | matchAllQuery |QueryBuilders.matchAllQuery()|
 | - | highLight |HighlightBuilder.Field |
 | ... | ... | ...|
+---
 
 ## Advertising provider
 <a href="https://www.mingdao.com?s=utm_70&utm_source=easy-es&utm_medium=banner&utm_campaign=gitee&utm_content=IT%E8%B5%8B%E8%83%BD%E4%B8%9A%E5%8A%A1
@@ -184,16 +185,6 @@ String indexName = "document";
   <img alt="ad" src="https://iknow.hs.net/68963214-7a61-4f38-b5b5-a068c07a35f1.png">
 </a>
 
-</br>
-
-<a href="http://www.yunchengxc.com/">
-  <img alt="ad" src="https://iknow.hs.net/ea88661b-3d02-4dba-aacb-8907a4ca8f11.jpg">
-</a>
-
-</br>
-
-<a href="https://www.jnpfsoft.com/index.html?from=easy-es/">
-  <img alt="ad" src="https://iknow.hs.net/a3b07ec6-c94e-48c5-b1b4-743a4d6ba09f.png">
 </a>
 
 ## Donate
